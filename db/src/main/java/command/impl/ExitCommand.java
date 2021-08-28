@@ -1,6 +1,6 @@
 package command.impl;
 
-import annotation.Command.Command;
+import annotation.Command;
 import command.BaseCommand;
 import entites.RedisDb;
 

@@ -1,12 +1,14 @@
 package command.impl;
 
-import annotation.Command.Command;
+import annotation.Command;
 import command.BaseCommand;
 import entites.RedisDb;
 import util.StringUtils;
 
 import java.util.List;
 import java.util.Map;
+
+import static util.StringUtils.allNotEmpty;
 
 /**
  * @author Hu yujing
@@ -32,6 +34,6 @@ public class RPushCommand extends BaseCommand {
 
   @Override
   protected boolean checkArg(List<String> args) {
-    return args.size() >= 2 && !StringUtils.isEmpty(args);
+    return args.size() >= 2 && !allNotEmpty(args);
   }
 }
