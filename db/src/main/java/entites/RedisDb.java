@@ -11,12 +11,20 @@ public class RedisDb {
     this.dict = new HashMap<>();
   }
 
-  public Map<Object, Object> getDict() {
-    return dict;
-  }
-
   /**
    * 数据库的键空间
    */
-  private Map<Object, Object> dict;
+  private final Map<Object, Object> dict;
+
+  public Object put(Object key, Object value) {
+    return dict.put(key, value);
+  }
+
+  public Object get(Object key) {
+    return dict.get(key);
+  }
+
+  public Object remove(Object key) {
+    return dict.remove(key);
+  }
 }

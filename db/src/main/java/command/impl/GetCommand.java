@@ -13,17 +13,15 @@ import java.util.Map;
 @Command("get")
 public class GetCommand extends BaseCommand {
 
-  Map<Object, Object> dict;
   RedisDb redisDb;
 
   public GetCommand(RedisDb redisDb) {
     this.redisDb = redisDb;
-    this.dict = redisDb.getDict();
   }
 
   @Override
   public String execute(List<String> args) {
-    final Object o = dict.get(args.get(0));
+    final Object o = redisDb.get(args.get(0));
     if (o == null) {
       return "(nil)";
     }

@@ -13,19 +13,17 @@ import java.util.Map;
 @Command("set")
 public class SetCommand extends BaseCommand {
 
-  Map<Object, Object> dict;
   RedisDb redisDb;
 
   public SetCommand(RedisDb redisDb) {
     this.redisDb = redisDb;
-    this.dict = redisDb.getDict();
   }
 
   @Override
   public String execute(List<String> args) {
     final String key = args.get(0);
     final String val = args.get(1);
-    dict.put(key, val);
+    redisDb.put(key, val);
     return "OK";
   }
 

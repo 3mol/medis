@@ -16,19 +16,17 @@ import static util.StringUtils.allNotEmpty;
 @Command("rpush")
 public class RPushCommand extends BaseCommand {
 
-  Map<Object, Object> dict;
   RedisDb redisDb;
 
   public RPushCommand(RedisDb redisDb) {
     this.redisDb = redisDb;
-    this.dict = redisDb.getDict();
   }
 
   @Override
   public String execute(List<String> args) {
     final String key = args.get(0);
     final List<String> list = args.subList(1, args.size());
-    dict.put(key, list);
+    redisDb.put(key, list);
     return "OK";
   }
 

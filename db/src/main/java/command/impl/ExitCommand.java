@@ -13,12 +13,10 @@ import java.util.Map;
 @Command("exit")
 public class ExitCommand extends BaseCommand {
 
-  Map<Object, Object> dict;
   RedisDb redisDb;
 
   public ExitCommand(RedisDb redisDb) {
     this.redisDb = redisDb;
-    this.dict = redisDb.getDict();
   }
 
   @Override
